@@ -16,7 +16,7 @@ exports.up = function (knex) {
       table.integer('species_id')
         .unsigned()
         .notNullable()
-        .references('species_id')
+        .references('species_id').inTable('species')
     })
 };
 
