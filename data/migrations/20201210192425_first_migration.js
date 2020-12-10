@@ -14,13 +14,12 @@ exports.up = function (knex) {
       table.increments('animal_id')
       table.string('animal_name', 128).notNullable()
       table.integer('species_id')
-        .unsigned()
-        .notNullable()
+        .unsigned().notNullable()
         .references('species_id').inTable('species')
         .onDelete('CASCADE').onUpdate('CASCADE')
     })
     .createTable('zoo_animals', table => {
-      
+
     })
 };
 
