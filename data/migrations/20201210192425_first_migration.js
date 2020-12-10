@@ -6,7 +6,10 @@ exports.up = function (knex) {
       table.string('zoo_name', 128).notNullable()
       table.string('address', 128).notNullable()
     })
-    .createTable('animals')
+    .createTable('species', table => {
+      table.increments('species_id')
+      table.string('zoo_name', 128).notNullable()
+    })
 };
 
 exports.down = function (knex) {
