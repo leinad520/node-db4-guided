@@ -19,7 +19,9 @@ exports.up = function (knex) {
         .references('species_id').inTable('species')
         .onDelete('CASCADE').onUpdate('CASCADE')
     })
-    .CREATE
+    .createTable('zoo_animals', table => {
+      
+    })
 };
 
 exports.down = function (knex) {
