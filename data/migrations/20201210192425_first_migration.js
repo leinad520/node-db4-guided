@@ -10,8 +10,13 @@ exports.up = function (knex) {
       table.increments('species_id')
       table.string('species_name', 128).notNullable()
     })
+    .animals('animals', table => {
+      table.increments('animal_id')
+    })
 };
 
 exports.down = function (knex) {
-  return knex.schema.dropTableIfExists('zoos')
+  return knex.schema
+    .dropTableIfExists('species')
+    .dropTableIfExists('zoos')
 };
