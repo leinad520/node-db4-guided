@@ -12,6 +12,9 @@ exports.up = function (knex) {
     })
     .animals('animals', table => {
       table.increments('animal_id')
+      table.string('animal_name', 128).notNullable()
+      table.integer('species_id')
+        
     })
 };
 
