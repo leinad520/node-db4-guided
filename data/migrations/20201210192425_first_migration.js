@@ -26,13 +26,15 @@ exports.up = function (knex) {
         .onDelete('CASCADE').onUpdate('CASCADE')
       table.integer('animal_id')
         .unsigned().notNullable()
-        .references('zoo_id').inTable('zoos')
+        .references('animal_id').inTable('animals')
         .onDelete('CASCADE').onUpdate('CASCADE')
     })
 };
 
 exports.down = function (knex) {
   return knex.schema
+    .dropTableIfExists('zoo_animals')
+    .dropTableIfExists('animals')
     .dropTableIfExists('species')
     .dropTableIfExists('zoos')
 };
