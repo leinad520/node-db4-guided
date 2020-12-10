@@ -20,9 +20,13 @@ exports.up = function (knex) {
     })
     .createTable('zoo_animals', table => {
       table.increments('zoo_animals_id')
-      table.integer('species_id')
+      table.integer('zoo_id')
         .unsigned().notNullable()
-        .references('species_id').inTable('species')
+        .references('zoo_id').inTable('zoos')
+        .onDelete('CASCADE').onUpdate('CASCADE')
+      table.integer('animal_id')
+        .unsigned().notNullable()
+        .references('zoo_id').inTable('zoos')
         .onDelete('CASCADE').onUpdate('CASCADE')
     })
 };
