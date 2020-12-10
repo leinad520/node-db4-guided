@@ -8,7 +8,7 @@ exports.up = function (knex) {
     })
     .createTable('species', table => {
       table.increments('species_id')
-      table.string('zoo_name', 128).notNullable()
+      table.string('species_name', 128).notNullable()
     })
 };
 
