@@ -10,14 +10,16 @@ exports.up = function (knex) {
       table.increments('species_id')
       table.string('species_name', 128).notNullable()
     })
-    .animals('animals', table => {
+    .createTable('animals', table => {
       table.increments('animal_id')
       table.string('animal_name', 128).notNullable()
       table.integer('species_id')
         .unsigned()
         .notNullable()
         .references('species_id').inTable('species')
+        .onDelete('CASCADE').onUpdate('CASCADE')
     })
+    .CREATE
 };
 
 exports.down = function (knex) {
